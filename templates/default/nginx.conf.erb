@@ -1,0 +1,29 @@
+server {
+    <% if node.node_app.http %>
+    listen 80;
+    <% end %>
+    <% if node.node_app.https %>
+    listen 443;
+
+    ssl on;
+    ssl_certificate <%= node.node_app.ssl.certificate_path %>
+    ssl_certificate_key <%= node.node_app.ssl.certificate_key_path %>
+    <% end %>
+    <% if defined?(node.node_app.server_name) %>
+    server_name <%= node.node_app.server_name %>
+    <% end %>
+
+    access_log <%= node.node_app.path %>/logs/nginx_access.log;
+    error_log <%= node.node_app.path %>/logs/nginx_error.log;
+
+    keepalive_timeout 70;
+
+    location / {
+        proxy_pass <%= node.node_app.proxy_pass %>;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
