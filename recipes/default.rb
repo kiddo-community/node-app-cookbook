@@ -14,3 +14,7 @@ directory node[:node_app][:path] do
   mode "0755"
   recursive true
 end
+
+%w(env nginx_site).each do |recipe|
+  include_recipe "node_app::#{recipe}"
+end
