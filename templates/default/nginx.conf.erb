@@ -1,9 +1,9 @@
 server {
     <% if node.node_app.http %>
-    listen 80;
+    listen <%= node.node_app.http_port %>;
     <% end %>
     <% if node.node_app.https %>
-    listen 443;
+    listen <%= node.node_app.https_port %>;
 
     ssl on;
     ssl_certificate <%= node.node_app.ssl.certificate_path %>

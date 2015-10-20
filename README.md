@@ -8,7 +8,6 @@ Requirements
 - `nginx`
 - `magic_shell`
 - `nodejs`
-- `pm2`
 
 Attributes
 ----------
@@ -51,9 +50,21 @@ Attributes
     <td><tt>true</tt></td>
   </tr>
   <tr>
+    <td><tt>['node_app']['http_port']</tt></td>
+    <td>Boolean</td>
+    <td>Port where http will listen</td>
+    <td><tt>80</tt></td>
+  </tr>
+  <tr>
     <td><tt>['node_app']['https']</tt></td>
     <td>Boolean</td>
     <td>Enable https in nginx</td>
+    <td><tt>false</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['node_app']['https_port']</tt></td>
+    <td>Boolean</td>
+    <td>Port where https will listen</td>
     <td><tt>false</tt></td>
   </tr>
   <tr>
@@ -79,18 +90,6 @@ Attributes
     <td>String</td>
     <td>Define the address that nginx will proxy</td>
     <td><tt>http://localhost:3000</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['node_app']['pm2_start']</tt></td>
-    <td>String</td>
-    <td>Enable execution of pm2</td>
-    <td><tt>true</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['node_app']['pm2_process_file']</tt></td>
-    <td>String</td>
-    <td>Define the name of the `.json` file that contains the pm2 options (starting in folder defined in `['node_app']['path']`)</td>
-    <td><tt>process.json</tt></td>
   </tr>
 </table>
 

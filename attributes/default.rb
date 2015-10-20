@@ -3,8 +3,10 @@ default[:node_app][:path] = "/var/apps/node_app"
 default[:node_app][:user] = "ubuntu"
 
 default[:node_app][:http] = true
+default[:node_app][:http_port] = 80
 
 default[:node_app][:https] = false
+default[:node_app][:https_port] = 443
 
 default[:node_app][:proxy_pass] = "http://localhost:3000"
 
