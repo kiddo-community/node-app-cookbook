@@ -38,12 +38,6 @@ Attributes
     <td><tt>ubuntu</tt></td>
   </tr>
   <tr>
-    <td><tt>['node_app']['user']</tt></td>
-    <td>String</td>
-    <td>The user that will be set as owner of application path</td>
-    <td><tt>ubuntu</tt></td>
-  </tr>
-  <tr>
     <td><tt>['node_app']['http']</tt></td>
     <td>Boolean</td>
     <td>Enable http in nginx</td>
@@ -77,13 +71,13 @@ Attributes
     <td><tt>['node_app']['ssl']['certificate_key_path']</tt></td>
     <td>String</td>
     <td>Define the ssl certificate key path **required when https enabled**</td>
-    <td><tt></tt></td>
+    <td></td>
   </tr>
   <tr>
     <td><tt>['node_app']['server_name']</tt></td>
     <td>String</td>
     <td>Define the domain name that nginx will bind to</td>
-    <td><tt></tt></td>
+    <td></td>
   </tr>
   <tr>
     <td><tt>['node_app']['proxy_pass']</tt></td>
@@ -95,7 +89,6 @@ Attributes
 
 Usage
 -----
-#### node_app::default
 Just include `app` in your node's `run_list`:
 
 ```json
